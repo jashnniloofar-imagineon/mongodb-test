@@ -1,0 +1,18 @@
+{
+  "BEHAVIOUR": {
+    "END_STATE_IDLE_TIME_MINUTES": 0.002
+  },
+  "STORE": {
+    "USE_DEBUGGER": false
+  },
+  "DB": {
+    "CONNECTION_STRING": "mongodb://admin:S3cretPassword@localhost:27017/TMSB?authSource=admin",
+    "CONNECTION_TIMEOUT": 5000
+  },
+  "QUEUE": {
+    "SIZE": 1000
+  },
+  "REST": {
+    "port": 8080
+  }
+}

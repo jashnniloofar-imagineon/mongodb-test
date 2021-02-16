@@ -1,0 +1,5 @@
+{
+	"DB": {
+		"CONNECTION_STRING": "mongodb://admin:S3cretPassword@localhost:27017/TMSB?authSource=admin"
+	}
+}

@@ -1,0 +1,19 @@
+{
+	"include": ["src/**/*"],
+	"exclude": ["src/webpage/**/*"],
+	"compileOnSave": false,
+	"compilerOptions": {
+		"target": "es2017",
+		"module": "commonjs",
+		"lib": ["dom", "es2017"],
+		"outDir": "./dist",
+		"sourceMap": true,
+		"inlineSources": true,
+		"noEmitOnError": true,
+		"noImplicitAny": true,
+		"noImplicitReturns": true,
+		"noImplicitThis": true,
+		"strictNullChecks": true,
+		"resolveJsonModule": true
+	}
+}

@@ -1,0 +1,33 @@
+name: Node.js CI
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        work-dir: [server]
+        node-version: [10.x, 12.x]
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Create mongoDB Docker container for API testing
+        uses: DigiPie/mongo-action@v1.0.1
+      - name: Install npm packages
+        run: npm install
+        working-directory: ${{ matrix.work-dir }}
+      - name: Move src/config/prod.ts to src/config/dev.ts
+        run: mv src/config/prod.ts src/config/dev.ts
+        working-directory: ${{ matrix.work-dir }}
+      - name: Run `npm test`
+        run: npm test
+        working-directory: ${{ matrix.work-dir }}
+        env:
+          CONNECTION_STRING: mongodb://localhost:27017/dev # Access mongoDB Docker container
